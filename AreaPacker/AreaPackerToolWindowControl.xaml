@@ -8,11 +8,25 @@
              Foreground="{DynamicResource {x:Static vsshell:VsBrushes.WindowTextKey}}"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300"
-             Name="MyToolWindow">
+             Name="Area Packer">
+    <UserControl.Resources>
+    
+    </UserControl.Resources>
     <Grid>
-        <StackPanel Orientation="Vertical">
-            <TextBlock Margin="10" HorizontalAlignment="Center">AreaPackerToolWindow</TextBlock>
-            <Button Content="Click me!" Click="button1_Click" Width="120" Height="80" Name="button1"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <TreeView x:Name="ProjectTreeView" />
+
+        </Grid>
+
+        <StackPanel Orientation="Vertical" Grid.Column="1">
+            <TextBlock Margin="10" HorizontalAlignment="Left">Choose Folders</TextBlock>
+
+            <Button Content="Refresh" MaxWidth="200" MaxHeight="40" Click="RefreshButton_OnClick" Name="RefreshButton"/>
+            <Button Content="Generate Package" MaxWidth="200" MaxHeight="40" Click="GeneratePackageButton_OnClick" Name="GeneratePackageButton"/>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -1,5 +1,13 @@
-﻿namespace AreaPacker
+﻿using System.Collections.Generic;
+using AreaPacker.Utils;
+using EnvDTE;
+using EnvDTE80;
+
+using Microsoft.VisualStudio.Shell;
+
+namespace AreaPacker
 {
+    using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
     using System.Windows.Controls;
@@ -17,18 +25,27 @@
             this.InitializeComponent();
         }
 
+        
+
         /// <summary>
-        /// Handles click on the button by displaying a message box.
+        /// Generates the package file
         /// </summary>
         /// <param name="sender">The event sender.</param>
         /// <param name="e">The event args.</param>
-        [SuppressMessage("Microsoft.Globalization", "CA1300:SpecifyMessageBoxOptions", Justification = "Sample code")]
-        [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:ElementMustBeginWithUpperCaseLetter", Justification = "Default event handler naming pattern")]
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void GeneratePackageButton_OnClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(
-                string.Format(System.Globalization.CultureInfo.CurrentUICulture, "Invoked '{0}'", this.ToString()),
-                "AreaPackerToolWindow");
+            // get project root folder   
+            // Check if package exists
+            //if it does promt for overwrite/rename
+            // create file
+            // fille file with data
+        }
+
+
+        private void RefreshButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            var treeFactory = new TreeViewFactory();
+            treeFactory.PopulateTreeView();
         }
     }
 }
